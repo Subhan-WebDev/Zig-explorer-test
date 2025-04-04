@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MultiSearchBar from '../components/MultiSearchBar';
 import Navbar from '../components/Navbar';
+import LoadingIndicator from '../components/LoadingIndicator';
+
 
 // Helper: Convert micro amounts to whole tokens if needed.
 const convertMicroAmount = (amountStr) => {
@@ -57,6 +59,7 @@ const WalletDetail = () => {
   const [loadingTx, setLoadingTx] = useState(true);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
+  const [loading, setLoading] = useState(true);
 
   // Fetch transactions from both sender and recipient queries with pagination.
   const fetchTransactions = async () => {
@@ -143,7 +146,9 @@ const WalletDetail = () => {
     setPage(1);
   };
 
-  return (
+  return loadingTx ? (
+    <LoadingIndicator />
+  ) : (
     <div style={styles.container}>
       <Navbar />
       <h2 style={styles.title}>Wallet Details for {address}</h2>

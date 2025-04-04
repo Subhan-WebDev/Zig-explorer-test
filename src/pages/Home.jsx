@@ -1,13 +1,27 @@
 // src/pages/Home.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import MultiSearchBar from '../components/MultiSearchBar';
 import LatestTxSummary from '../components/LatestTxSummary';
 import BlockSummary from '../components/BlockSummary';
 import TokenSummary from '../components/TokenSummary';
+import LoadingIndicator from '../components/LoadingIndicator';
+
 
 const Home = () => {
-  return (
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // Simulate API loading delay (3 seconds)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return loading ? (
+    <LoadingIndicator />
+  ) : (
     <div style={{  fontFamily: 'Arial, sans-serif', backgroundImage: "radial-gradient(circle, #320cf3, #2769d8, #1de1e2)", padding: "1rem" }}>
       <Navbar />
       <MultiSearchBar />

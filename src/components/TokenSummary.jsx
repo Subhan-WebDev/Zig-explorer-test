@@ -1,5 +1,6 @@
 // src/components/TokenSummary.jsx
 import React, { useEffect, useState } from 'react';
+import LoadingIndicator from './LoadingIndicator';
 
 const TokenSummary = () => {
   const [tokens, setTokens] = useState([]);
@@ -26,7 +27,7 @@ const TokenSummary = () => {
     fetchTokens();
   }, []);
 
-  if (loading) return <div>Loading tokens...</div>;
+  if (loading) return <LoadingIndicator/>;
 
   const tableStyle = {
     width: '100%',

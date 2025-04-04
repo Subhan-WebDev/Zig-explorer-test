@@ -1,5 +1,6 @@
 // src/components/LatestTxSummary.jsx
 import React, { useEffect, useState } from 'react';
+import LoadingIndicator from './LoadingIndicator';
 
 const LatestTxSummary = () => {
   const [txs, setTxs] = useState([]);
@@ -31,7 +32,7 @@ const LatestTxSummary = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (loading) return <div>Loading latest transactions...</div>;
+  if (loading) return  <LoadingIndicator />;
 
   const tableStyle = {
     width: '100%',

@@ -1,5 +1,6 @@
 // src/components/BlockSummary.jsx
 import React, { useEffect, useState } from 'react';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 const BlockSummary = () => {
   const [blocks, setBlocks] = useState([]);
@@ -27,7 +28,7 @@ const BlockSummary = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (loading) return <div>Loading latest blocks...</div>;
+  if (loading) return <LoadingIndicator />;
 
   const tableStyle = {
     width: '100%',

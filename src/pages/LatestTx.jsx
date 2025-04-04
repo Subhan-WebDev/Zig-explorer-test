@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MultiSearchBar from '../components/MultiSearchBar';
 import Navbar from '../components/Navbar';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 const convertMicroAmount = (amountStr) => {
   const match = amountStr.match(/^([\d.]+)([a-zA-Z]+)$/);
@@ -88,7 +89,7 @@ const LatestTx = () => {
     setPage(1);
   };
 
-  if (loading) return <div style={styles.loading}>Loading transactions...</div>;
+  if (loading) return <LoadingIndicator/>;
 
   return (
     <div style={styles.container}>
