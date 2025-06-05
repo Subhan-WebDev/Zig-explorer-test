@@ -67,8 +67,8 @@ const WalletDetail = () => {
       const querySender = `"transfer.sender='${address}'"`;
       const queryRecipient = `"transfer.recipient='${address}'"`;
       
-      const urlSender = `https://testnet-rpc.zigchain.com/tx_search?query=${encodeURIComponent(querySender)}&prove=true&page=${page}&per_page=${perPage}&order_by=%22desc%22`;
-      const urlRecipient = `https://testnet-rpc.zigchain.com/tx_search?query=${encodeURIComponent(queryRecipient)}&prove=true&page=${page}&per_page=${perPage}&order_by=%22desc%22`;
+      const urlSender = `https://rpc.zigscan.net/tx_search?query=${encodeURIComponent(querySender)}&prove=true&page=${page}&per_page=${perPage}&order_by=%22desc%22`;
+      const urlRecipient = `https://rpc.zigscan.net/tx_search?query=${encodeURIComponent(queryRecipient)}&prove=true&page=${page}&per_page=${perPage}&order_by=%22desc%22`;
       
       const [resSender, resRecipient] = await Promise.all([fetch(urlSender), fetch(urlRecipient)]);
       const dataSender = await resSender.json();
@@ -113,8 +113,8 @@ const WalletDetail = () => {
       const querySender = `"transfer.sender='${address}'"`;
       const queryRecipient = `"transfer.recipient='${address}'"`;
       
-      const urlSender = `https://testnet-rpc.zigchain.com/tx_search?query=${encodeURIComponent(querySender)}&prove=true&page=1&per_page=10&order_by=%22desc%22`;
-      const urlRecipient = `https://testnet-rpc.zigchain.com/tx_search?query=${encodeURIComponent(queryRecipient)}&prove=true&page=1&per_page=10&order_by=%22desc%22`;
+      const urlSender = `https://rpc.zigscan.net/tx_search?query=${encodeURIComponent(querySender)}&prove=true&page=1&per_page=10&order_by=%22desc%22`;
+      const urlRecipient = `https://rpc.zigscan.net/tx_search?query=${encodeURIComponent(queryRecipient)}&prove=true&page=1&per_page=10&order_by=%22desc%22`;
       
       const [resSender, resRecipient] = await Promise.all([fetch(urlSender), fetch(urlRecipient)]);
       const dataSender = await resSender.json();
