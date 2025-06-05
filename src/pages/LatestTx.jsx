@@ -57,7 +57,7 @@ const LatestTx = () => {
 
   const fetchTxs = async () => {
     try {
-      const txSearchUrl = `https://testnet-rpc.zigchain.com/tx_search?query=%22tx.height%3E0%22&prove=true&page=${page}&per_page=${perPage}&order_by=%22desc%22`;
+      const txSearchUrl = `https://rpc.zigscan.net/tx_search?query=%22tx.height%3E0%22&prove=true&page=${page}&per_page=${perPage}&order_by=%22desc%22`;
       const response = await fetch(txSearchUrl);
       const data = await response.json();
       if (data.result && data.result.txs) {
