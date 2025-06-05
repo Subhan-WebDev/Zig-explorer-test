@@ -63,7 +63,7 @@ const Transaction = () => {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch(`https://testnet-rpc.zigchain.com/tx?hash=0x${hash}&prove=true`)
+    fetch(`https://rpc.zigscan.net//tx?hash=0x${hash}&prove=true`)
       .then(r => r.json())
       .then(data => {
         if (!cancelled) {
@@ -82,7 +82,7 @@ const Transaction = () => {
     setLoadingSender(true);
     const querySender = `"transfer.sender='${transfer.sender}'"`;
     const urlSender = 
-      `https://testnet-rpc.zigchain.com/tx_search?query=${encodeURIComponent(querySender)}` +
+      `https://rpc.zigscan.net/tx_search?query=${encodeURIComponent(querySender)}` +
       `&prove=true&page=1&per_page=10&order_by=%22desc%22`;
     fetch(urlSender)
       .then(r => r.json())
@@ -97,7 +97,7 @@ const Transaction = () => {
     setLoadingReceiver(true);
     const queryRecipient = `"transfer.recipient='${transfer.receiver}'"`;
     const urlRecipient = 
-      `https://testnet-rpc.zigchain.com/tx_search?query=${encodeURIComponent(queryRecipient)}` +
+      `https://rpc.zigscan.net/tx_search?query=${encodeURIComponent(queryRecipient)}` +
       `&prove=true&page=1&per_page=10&order_by=%22desc%22`;
     fetch(urlRecipient)
       .then(r => r.json())
